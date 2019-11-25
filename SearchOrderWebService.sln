@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchOrderWebService", "SearchOrderWebService\SearchOrderWebService.csproj", "{3ADBF4FB-CE9A-437B-8D69-8239E35A2C59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ADBF4FB-CE9A-437B-8D69-8239E35A2C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADBF4FB-CE9A-437B-8D69-8239E35A2C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADBF4FB-CE9A-437B-8D69-8239E35A2C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADBF4FB-CE9A-437B-8D69-8239E35A2C59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BAC847A-5248-4B13-A046-EA771E1A969D}
+	EndGlobalSection
+EndGlobal
