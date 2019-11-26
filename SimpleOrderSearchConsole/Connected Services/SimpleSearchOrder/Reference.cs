@@ -284,7 +284,7 @@ namespace SimpleOrderSearchConsole.SimpleSearchOrder {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TestSearchOrder", ReplyAction="*")]
         System.Threading.Tasks.Task TestSearchOrderAsync();
         
-        // CODEGEN: Generating message contract since element name criteria from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name searchCriteria from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SearchOrder", ReplyAction="*")]
         SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderResponse SearchOrder(SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequest request);
         
@@ -377,21 +377,13 @@ namespace SimpleOrderSearchConsole.SimpleSearchOrder {
     public partial class SearchOrderRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria criteria;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public int page;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int pageSize;
+        public SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria searchCriteria;
         
         public SearchOrderRequestBody() {
         }
         
-        public SearchOrderRequestBody(SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria criteria, int page, int pageSize) {
-            this.criteria = criteria;
-            this.page = page;
-            this.pageSize = pageSize;
+        public SearchOrderRequestBody(SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria searchCriteria) {
+            this.searchCriteria = searchCriteria;
         }
     }
     
@@ -492,12 +484,10 @@ namespace SimpleOrderSearchConsole.SimpleSearchOrder {
             return base.Channel.SearchOrder(request);
         }
         
-        public SimpleOrderSearchConsole.SimpleSearchOrder.OrderInfo[] SearchOrder(SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria criteria, int page, int pageSize) {
+        public SimpleOrderSearchConsole.SimpleSearchOrder.OrderInfo[] SearchOrder(SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria searchCriteria) {
             SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequest inValue = new SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequest();
             inValue.Body = new SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequestBody();
-            inValue.Body.criteria = criteria;
-            inValue.Body.page = page;
-            inValue.Body.pageSize = pageSize;
+            inValue.Body.searchCriteria = searchCriteria;
             SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderResponse retVal = ((SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderServiceSoap)(this)).SearchOrder(inValue);
             return retVal.Body.SearchOrderResult;
         }
@@ -507,12 +497,10 @@ namespace SimpleOrderSearchConsole.SimpleSearchOrder {
             return base.Channel.SearchOrderAsync(request);
         }
         
-        public System.Threading.Tasks.Task<SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderResponse> SearchOrderAsync(SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria criteria, int page, int pageSize) {
+        public System.Threading.Tasks.Task<SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderResponse> SearchOrderAsync(SimpleOrderSearchConsole.SimpleSearchOrder.SearchCriteria searchCriteria) {
             SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequest inValue = new SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequest();
             inValue.Body = new SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderRequestBody();
-            inValue.Body.criteria = criteria;
-            inValue.Body.page = page;
-            inValue.Body.pageSize = pageSize;
+            inValue.Body.searchCriteria = searchCriteria;
             return ((SimpleOrderSearchConsole.SimpleSearchOrder.SearchOrderServiceSoap)(this)).SearchOrderAsync(inValue);
         }
     }

@@ -11,62 +11,66 @@ namespace SimpleOrderSearchConsole
     {
         static void Main(string[] args)
         {
+            /// <summary>
+            /// Making Service Call...
+            /// </summary>
+            
             SearchOrderServiceSoapClient service = new SearchOrderServiceSoapClient();
             SearchCriteria criteria = new SearchCriteria();
-            Console.Write("Please provide OrderId(If known otherwise enter):");
-            if(int.TryParse(Console.ReadLine(),out int orderId)) { criteria.OrderId = orderId; }
-            Console.Write("Please provide MSA(If known otherwise enter):");
-            if (int.TryParse(Console.ReadLine(), out int msa)) { criteria.MSA = msa; }
+
+            /// <summary>
+            /// User Giving Inputs as per requirement ((OrderId || (MSA && Status)) && CompletionDte)...
+            /// </summary>
+
+            Console.Write("Please provide OrderId (If known otherwise enter): ");
+            if(int.TryParse(Console.ReadLine(),out int orderId)) 
+            {
+                criteria.OrderId = orderId; 
+            }
+
+            Console.Write("Please provide MSA(If known otherwise enter): ");
+            if (int.TryParse(Console.ReadLine(), out int msa)) 
+            {
+                criteria.MSA = msa; 
+            }
+
             Console.Write("Please provide Status(If known otherwise enter):");
-            if (int.TryParse(Console.ReadLine(), out int status)) { criteria.Status = status; }
+            if (int.TryParse(Console.ReadLine(), out int status)) 
+            {
+                criteria.Status = status; 
+            }
 
             Console.Write("Please provide Completion Date(YYYY-MM-DD):");
             if (DateTime.TryParse(Console.ReadLine().ToString(), out DateTime dt))
             {
                 criteria.CompletionDte = dt;
             }
-            int page = 0;
-            int pageSize = 25;
-            
-            if (IsValidCriteria(criteria))
+
+            // Calling service method for getting the Orders Data...
+            var data = service.SearchOrder(criteria);
+            if (data?.Any() ?? false)
             {
-                var data = service.SearchOrder(criteria, page, pageSize);
-                if (data?.Any() ?? false)
+                Console.WriteLine("Orders for Criteria: ");
+                Console.WriteLine();
+                foreach (var item in data)
                 {
-                    Console.WriteLine("Your Orders: ");
-                    data.ToList().ForEach(x =>
-                    {
-                        Console.WriteLine("OrderID: {0},ShipperID: {1},DriverID: {2},CompletionDte: {3},Status: {4},Code: {5},MSA: {6},Duration: {7},OfferType: {8}",
-                            x.OrderId,x.ShipperId,x.DriverId,x.CompletionDte,x.Status,x.Code,x.MSA,x.Duration,x.OfferType);
-                    });
-                }
-                else
-                {
-                    Console.WriteLine("No data ");
+                    Console.WriteLine("OrderId: " +item.OrderId);
+                    Console.WriteLine("ShipperId: " +item.ShipperId);
+                    Console.WriteLine("DriverId: " +item.DriverId);
+                    Console.WriteLine("CompletionDte: " +item.CompletionDte);
+                    Console.WriteLine("Status: " +item.Status);
+                    Console.WriteLine("Code: " +item.Code);
+                    Console.WriteLine("MSA: " +item.MSA);
+                    Console.WriteLine("Duration: " +item.Duration);
+                    Console.WriteLine("OfferType: " +item.OfferType);
                 }
             }
             else
             {
-                Console.WriteLine("Please provide valid criteria");
+                Console.WriteLine();
+                Console.WriteLine("There is no Data for the Criteria entered. ");
             }
             Console.ReadKey();
-        }
-
-        private static bool IsValidCriteria(SearchCriteria model)
-        {
-            bool bValid = false;
-            if (model.CompletionDte.HasValue)
-            {
-                if (model.OrderId > 0)
-                {
-                    bValid = true;
-                }
-                else if (model.MSA > 0 && model.Status > 0)
-                {
-                    bValid = true;
-                }
-            }
-            return bValid;
         }
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\polas\source\repos\SimpleOrderSearchConsole\SimpleOrderSearchConsole\bin\Debug\SimpleOrderSearchConsole.exe.config
+C:\Users\polas\source\repos\SimpleOrderSearchConsole\SimpleOrderSearchConsole\bin\Debug\SimpleOrderSearchConsole.exe
+C:\Users\polas\source\repos\SimpleOrderSearchConsole\SimpleOrderSearchConsole\bin\Debug\SimpleOrderSearchConsole.pdb
+C:\Users\polas\source\repos\SimpleOrderSearchConsole\SimpleOrderSearchConsole\obj\Debug\SimpleOrderSearchConsole.csprojAssemblyReference.cache
+C:\Users\polas\source\repos\SimpleOrderSearchConsole\SimpleOrderSearchConsole\obj\Debug\SimpleOrderSearchConsole.exe
+C:\Users\polas\source\repos\SimpleOrderSearchConsole\SimpleOrderSearchConsole\obj\Debug\SimpleOrderSearchConsole.pdb

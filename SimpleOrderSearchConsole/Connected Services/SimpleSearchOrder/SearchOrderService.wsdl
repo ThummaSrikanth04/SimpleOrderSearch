@@ -21,9 +21,7 @@
       <s:element name="SearchOrder">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="criteria" type="tns:SearchCriteria" />
-            <s:element minOccurs="1" maxOccurs="1" name="page" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchCriteria" type="tns:SearchCriteria" />
           </s:sequence>
         </s:complexType>
       </s:element>
